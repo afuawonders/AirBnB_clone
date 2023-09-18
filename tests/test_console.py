@@ -43,7 +43,7 @@ class TestHBNBCommand_help(unittest.TestCase):
 
     def test_help_show(self):
         nytestCase = ("Prints the string representation of an instance based
-                on the class name and")
+                      "on the class name and")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help show"))
             self.assertEqual(nytestCase, output.getvalue().strip())
@@ -55,8 +55,8 @@ class TestHBNBCommand_help(unittest.TestCase):
             self.assertEqual(nytestCase, output.getvalue().strip())
 
     def test_help_all(self):
-        nytestCase = ("Prints all string representation of all instances
-                based or not on the class name")
+        nytestCase = ("Prints all string representation of all instances based
+                      or not on the class name")
         with patch("sys.stdout", new=StringIO()) as output:
             self.assertFalse(HBNBCommand().onecmd("help all"))
             self.assertEqual(nytestCase, output.getvalue().strip())
