@@ -39,9 +39,7 @@ class HBNBCommand(cmd.Cmd):
         pass
 
     def do_create(self, args):
-        """Creates a new instance of BaseModel,
-        saves it (to the JSON file) and prints the id
-        """
+        """Creates a new instance of BaseModel"""
         args, number = parse(args)
         if not number:
             print("** class name missing**")
@@ -63,7 +61,9 @@ class HBNBCommand(cmd.Cmd):
         args, number = parse(arg)
 
         if not number:
-            print("** class name missing **")
+            print("** class doesn't exist **")
+        elif args[0] not in classes:
+            print("** class doesn't exist **")
         elif number == 1:
             print("** instance id missing **")
         elif number == 2:
@@ -83,6 +83,8 @@ class HBNBCommand(cmd.Cmd):
         args, number = parse(arg)
 
         if not number:
+            print("** class name missing **")
+        elif arg[0] not in classes:
             print("** class name missing **")
         elif number == 1:
             print("** instance id missing **")
@@ -112,8 +114,8 @@ class HBNBCommand(cmd.Cmd):
             pass
 
     def do_update(self, arg):
-        """Updates an instance based on the class name and id by
-        adding or updating attribute"""
+        """Updates an instance based on the class name and id by adding
+        or updating attribute"""
         args, number = parse(arg)
         if not number:
             print("** class name missing **")
